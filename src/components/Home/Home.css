@@ -1,6 +1,26 @@
-.container_Home_page {
-  min-height: 40vw;
+
+.background_home_image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
   width: 100vw;
-  padding: 7vw 2vw 2vw 2vw;
-  background-color: rgb(0 0 0 / 30%);
+}
+
+.container_cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 2.5vw 0;
+  min-height: 70vh;
+  width: 95vw;
+  margin-top: 7vw;
+  margin-left: 2.5vw;
+  border-radius: 2vw;
+}
+
+.add_new_cities {
+  font-size: 2.5vw;
+  color: rgb(0 80 255 / 80%);
+  font-weight: bold;
 }

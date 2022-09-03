@@ -1,0 +1,69 @@
+.container_card {
+  display: grid;
+  position: relative;
+  height: 30vw;
+  width: 17vw;
+  padding: 2vw;
+  margin: 1vw;
+  background-color: rgb(255 255 255 / 20%);
+  backdrop-filter: blur(7px);
+  border-radius: 1vw;
+}
+
+.city_title {
+  font-size: 2vw;
+  margin: 0 auto;
+  margin-bottom: 1vw;
+}
+
+.Card_titles {
+  font-size: 1.3vw;
+  font-weight: bold;
+  margin: 0 auto;
+}
+
+.card_info {
+  font-size: 1vw;
+  margin: 0 auto;
+  margin-bottom: 1.5vw;
+}
+
+.Fav_btn {
+  display: none;
+  position: absolute;
+  bottom: 1vw;
+  left: 9.5vw;
+  height: 2vw; 
+  width: 2vw;
+  cursor:pointer;
+}
+
+.delete_btn {
+  display: none;
+  position: absolute;
+  top: 1.5vw;
+  right: 1.5vw;
+  height: 1.5vw; 
+  width: 1.5vw;
+  cursor:pointer;
+}
+
+.container_card:hover .Fav_btn {
+  display: block;
+}
+
+.container_card:hover .delete_btn {
+  display: block;
+}
+
+.Fav_btn:hover {
+  color: rgb(255 0 0 / 50%);
+}
+
+.Fav_btn:active {
+  color: rgb(255 0 0);
+}
+
+.delete_btn:active {
+  color: rgb(255 255 255 / 70%);
+}
