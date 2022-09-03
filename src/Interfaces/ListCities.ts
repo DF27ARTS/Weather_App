@@ -5,13 +5,16 @@ interface Objects {
   temp?: number;
   feels_like?: number;
   temp_min?: number;
+  temp_max?: number;
   type?: number;
   country?: string;
   sunrise?: number;
+  sunset?: number;
   id?: number;
   main?: string;
   speed?: number;
   deg?: number;
+  timezone?: number;
 }
 
 interface weatherOption {
@@ -33,7 +36,8 @@ export interface ListCities {
   sys?: Objects;
   timezone?: number;
   visibility?: number;
-  weather?: weatherOption[];
+  weather?: weatherOption[] | any;
   wind?: Objects;
   description?: string;
+  favoriteState?: boolean | any;
 }

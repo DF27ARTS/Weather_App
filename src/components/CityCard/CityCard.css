@@ -10,19 +10,47 @@
   border-radius: 1vw;
 }
 
+.container_card:hover {
+  height: 31vw;
+  width: 18vw;
+  margin: 0.9vw;
+  box-shadow: 5px 10px 10px 5px rgb(0 0 0 / 40%);
+  transition:cubic-bezier(0.215, 0.610, 0.355, 1) .4s;
+}
+
+.card_image {
+  position: absolute;
+  display: flex;
+  top: 3vw;
+  left: 5vw;
+  height: 10vw;
+  width: 10vw;
+}
+
+.container_card:hover .card_image {
+  height: 10.5vw;
+  width: 10.5vw;
+}
+
 .city_title {
+  text-decoration: none;
+  color: rgb(0 0 0 / 80%);
+  font-weight: bold;
+  position: relative;
   font-size: 2vw;
   margin: 0 auto;
   margin-bottom: 1vw;
 }
 
 .Card_titles {
+  position: relative;
   font-size: 1.3vw;
   font-weight: bold;
   margin: 0 auto;
 }
 
 .card_info {
+  position: relative;
   font-size: 1vw;
   margin: 0 auto;
   margin-bottom: 1.5vw;
@@ -36,6 +64,14 @@
   height: 2vw; 
   width: 2vw;
   cursor:pointer;
+}
+
+.Fav_btn_active {
+  color: rgb(255 0 0 / 50%);
+}
+
+.container_card:hover .Fav_btn {
+  left: 10vw;
 }
 
 .delete_btn {
@@ -55,6 +91,7 @@
 .container_card:hover .delete_btn {
   display: block;
 }
+
 
 .Fav_btn:hover {
   color: rgb(255 0 0 / 50%);
