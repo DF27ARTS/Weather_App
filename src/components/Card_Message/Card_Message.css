@@ -29,7 +29,7 @@
 }
 
 .msg_card {
-  display: flex;
+  display: grid;
   margin: 0;
   padding: 0;
   position: relative;
@@ -39,12 +39,49 @@
   border-radius: 1vw;
 }
 
+.delete_msg_card {
+  display: grid;
+  margin: 0;
+  padding: 7vw 0 7vw 0;
+  position: relative;
+  height: 8vw;
+  width: 35vw;
+  background-color: rgb(255 255 255 / 70%);
+  border-radius: 1vw;
+}
+
+.alert_icon {
+  position: absolute;
+  height: 8vw;
+  width: 8vw;
+  top: 0.5vw;
+  left: 13.5vw;
+  color: rgb(255 255 0 / 70% );
+}
+
+.delete_close_icon {
+  position: absolute;
+  top: 2vw;
+  right: 2vw;
+  height: 2vw;
+  width: 2vw;
+  cursor: pointer;
+}
+
 .msg_card_message {
   font-size: 2vw;
   font-weight: bold;
   color: rgb(0 0 0 / 80%);
   margin: 0 auto;
   margin-top: 5vw;
+}
+
+.delete_message {
+  font-size: 1.5vw;
+  font-weight: bold;
+  color: rgb(0 0 0 / 80%);
+  margin: 0 auto;
+  margin-top: 2vw;
 }
 
 .msg_card_button {

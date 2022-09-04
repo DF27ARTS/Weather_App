@@ -7,13 +7,15 @@ import { useState } from "react";
 import { ListCities } from "./Interfaces/ListCities";
 import Card_Message from "./components/Card_Message/Card_Message";
 import CardDetail from "./components/CardDetail/CardDetail";
+import DeleteMessage from "./components/DeleteMessange/DeleteMessage";
 
 function App(): JSX.Element {
   const [ListCities, setListCities] = useState<ListCities[]>([]);
   const [FavoriteCities, setFavoriteCities] = useState<ListCities[]>([]);
   const [Message, setMessage] = useState<string>("New Message");
   const [Msg_card_Active, setMsg_card_Active] = useState<boolean>(false);
-
+  const [AllowDelelte, setAllowDelelte] = useState<boolean>(false);
+  const [CurrentId, setCurrentId] = useState<number>(0);
   const AddNewCityToTheList = (city: ListCities): void => {
     setListCities([...ListCities, { ...city, favoriteState: false }]);
   };
@@ -23,12 +25,13 @@ function App(): JSX.Element {
     setFavoriteCities([...FavoriteCities, city]);
   };
 
-  const DeleteCityFromTheList = (id: number) => {
-    setListCities(ListCities.filter((city) => city.id !== id));
-  };
-
-  const DeleteCityFromFavorites = (id: number) => {
-    setFavoriteCities(FavoriteCities.filter((city) => city.id !== id));
+  const HandleDeleteCities = (value: string): void => {
+    if (value === "favorites") {
+      setFavoriteCities(FavoriteCities.filter((city) => city.id !== CurrentId));
+    } else {
+      setListCities(ListCities.filter((city) => city.id !== CurrentId));
+    }
+    setAllowDelelte(false);
   };
 
   const ChangeMsgCardActive = (value: boolean): void => {
@@ -40,14 +43,15 @@ function App(): JSX.Element {
       <Route exact path="/">
         <Home
           AddCityToFavorites={AddCityToFavorites}
-          DeleteCityFromTheList={DeleteCityFromTheList}
           ListCities={ListCities}
+          setCurrentId={setCurrentId}
+          setAllowDelelte={setAllowDelelte}
         />
       </Route>
       <Route exact path="/favorites">
         <Favorites
           FavoriteCities={FavoriteCities}
-          DeleteCityFromFavorites={DeleteCityFromFavorites}
+          setAllowDelelte={setAllowDelelte}
         />
       </Route>
       <Route exact path="/detail/:city_id">
@@ -65,6 +69,11 @@ function App(): JSX.Element {
         Message={Message}
         ChangeMsgCardActive={ChangeMsgCardActive}
         Msg_card_Active={Msg_card_Active}
+      />
+      <DeleteMessage
+        HandleDeleteCities={HandleDeleteCities}
+        AllowDelelte={AllowDelelte}
+        setAllowDelelte={setAllowDelelte}
       />
     </>
   );

@@ -6,21 +6,31 @@ import { Link, useLocation } from "react-router-dom";
 
 interface Props {
   city: ListCities;
-  DeleteCityFromTheList?: (id: number) => void;
   AddCityToFavorites?: (city: ListCities) => void;
-  DeleteCityFromFavorites?: (id: number) => void;
+  setCurrentId?: (id: number) => void;
+  setAllowDelelte?: (id: boolean) => void;
 }
 
 export default function CityCard({
   city,
-  DeleteCityFromTheList,
   AddCityToFavorites,
-  DeleteCityFromFavorites,
+  setCurrentId,
+  setAllowDelelte,
 }: Props) {
-  const id = city?.id;
+  const id = city.id;
 
   const location = useLocation<unknown>();
   const Location = location.pathname.split("/")[1];
+
+  const HandleDeleteFromList = (id: number): void => {
+    setCurrentId && setCurrentId(id);
+    setAllowDelelte && setAllowDelelte(true);
+  };
+
+  const HandleDeleteFromFavorites = (id: number): void => {
+    setCurrentId && setCurrentId(id);
+    setAllowDelelte && setAllowDelelte(true);
+  };
 
   return (
     <>
@@ -55,17 +65,13 @@ export default function CityCard({
             />
             <FaTrashRestoreAlt
               className="delete_btn"
-              onClick={() =>
-                DeleteCityFromTheList && id ? DeleteCityFromTheList(id) : null
-              }
+              onClick={() => id && HandleDeleteFromList(id)}
             />
           </>
         ) : (
           <FaTrashRestoreAlt
             className="delete_btn"
-            onClick={() =>
-              DeleteCityFromFavorites && id ? DeleteCityFromFavorites(id) : null
-            }
+            onClick={() => id && HandleDeleteFromFavorites(id)}
           />
         )}
       </div>

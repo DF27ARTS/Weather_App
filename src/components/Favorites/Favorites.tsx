@@ -5,12 +5,12 @@ import "./Favorites.css";
 
 interface Props {
   FavoriteCities: ListCities[];
-  DeleteCityFromFavorites: (id: number) => void;
+  setAllowDelelte: (value: boolean) => void;
 }
 
 export default function Favorites({
   FavoriteCities,
-  DeleteCityFromFavorites,
+  setAllowDelelte,
 }: Props): JSX.Element {
   return (
     <>
@@ -25,7 +25,7 @@ export default function Favorites({
             <CityCard
               key={city.id}
               city={city}
-              DeleteCityFromFavorites={DeleteCityFromFavorites}
+              setAllowDelelte={setAllowDelelte}
             />
           ))
         ) : (

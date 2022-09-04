@@ -5,14 +5,16 @@ import "./Home.css";
 
 interface Props {
   ListCities: ListCities[];
-  DeleteCityFromTheList: (id: number) => void;
   AddCityToFavorites: (city: ListCities) => void;
+  setCurrentId: (id: number) => void;
+  setAllowDelelte: (value: boolean) => void;
 }
 
 export default function Home({
   ListCities,
-  DeleteCityFromTheList,
   AddCityToFavorites,
+  setCurrentId,
+  setAllowDelelte,
 }: Props): JSX.Element {
   return (
     <>
@@ -26,8 +28,9 @@ export default function Home({
           ListCities.map((city) => (
             <CityCard
               key={city.id}
-              DeleteCityFromTheList={DeleteCityFromTheList}
               AddCityToFavorites={AddCityToFavorites}
+              setCurrentId={setCurrentId}
+              setAllowDelelte={setAllowDelelte}
               city={city}
             />
           ))
