@@ -21,8 +21,13 @@ function App(): JSX.Element {
   };
 
   const AddCityToFavorites = (city: ListCities): void => {
-    let City = ListCities.find((City) => City.id === city.id);
-    setFavoriteCities([...FavoriteCities, city]);
+    let City = FavoriteCities.find((City) => City.id === city.id);
+    if (!City) {
+      setFavoriteCities([...FavoriteCities, city]);
+    } else {
+      setMessage("The city is already in favorites");
+      setMsg_card_Active(true);
+    }
   };
 
   const HandleDeleteCities = (value: string): void => {
@@ -52,6 +57,7 @@ function App(): JSX.Element {
         <Favorites
           FavoriteCities={FavoriteCities}
           setAllowDelelte={setAllowDelelte}
+          setCurrentId={setCurrentId}
         />
       </Route>
       <Route exact path="/detail/:city_id">

@@ -6,11 +6,13 @@ import "./Favorites.css";
 interface Props {
   FavoriteCities: ListCities[];
   setAllowDelelte: (value: boolean) => void;
+  setCurrentId?: (id: number) => void;
 }
 
 export default function Favorites({
   FavoriteCities,
   setAllowDelelte,
+  setCurrentId,
 }: Props): JSX.Element {
   return (
     <>
@@ -26,6 +28,7 @@ export default function Favorites({
               key={city.id}
               city={city}
               setAllowDelelte={setAllowDelelte}
+              setCurrentId={setCurrentId}
             />
           ))
         ) : (
